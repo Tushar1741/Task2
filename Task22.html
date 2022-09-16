@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *
+{
+    box-sizing: border-box;
+    margin:0%;
+    padding: 0%;
+}
+body {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background: linear-gradient(#bebeee,#4718b3);
+}
+.container {
+    position: relative;
+}
+h4
+{
+    font-size: 30px;
+    color: rgb(201, 19, 207);
+    padding-bottom: 15px;
+}
+.head {
+    height: 100%;
+    width: 100%;
+    border-bottom: 3px solid black;
+    padding-top: 50px;
+    text-shadow: aqua;
+}
+.btn {
+    padding-top: 30px;
+    font-size: 20px;
+
+}
+
+button {
+    color: white;
+    font-weight: bold;
+    height: 40px;
+    width: 150px;
+    background-color: #2C3333;
+    border-radius: 10px;
+    font-size: 20px;
+}
+
+#data {
+    width: 40vw;
+    height: 400px;
+    text-align: right;
+    justify-content: center;
+    display: flex;
+    padding-left: 870px;
+}
+td
+{
+    padding-left: 50px;
+}
+.table {
+    width: 50vw;
+}
+
+table {
+    color: whitesmoke;
+    font-size: 18px;
+
+}
+table tr :hover {
+    background-color: #cfe2dc;
+}
+img {
+    clip-path: circle();
+}
+.foot
+{
+    padding-top: 205px;
+    line-height: 85px;
+    padding-left: 0px;
+    font-size: 20px;
+    color:rgba(240, 33, 77, 0.664);
+}
+    </style>
+</head>
+<body>
+     <div class="container">
+        <div class="head">
+            <h4 align="center">LETS GROW MORE</h4>
+            <h4 align="center"> WEB DEVELOPMENT INTERNSHIP</h4>
+            <h4 align="center"> TASK - WEB APPLICATION</h4>
+            <div  align="center" class="btn">
+            <button id="getdata" align ="center" onclick="getData()">GET USERS
+            </button>
+            </div>
+        
+        </div>
+            <div id="data">
+                <div class="table">
+                <table width="100%"height="500px">
+                    <tr align="left" >
+                        <td><img src=""  id="p1img"></td>
+                        <td><img src=""  id="p2img"></td>
+                        <td><img src=""  id="p3img"></td> 
+                    </tr>
+                    <tr>
+                        <td  align="left" id="name1"></td>
+                        <td  align="left" id="name2"></td>
+                        <td  align="left" id="name3"></td>
+                    </tr>
+                    <tr>
+                        <td  align="left" id="mail1"></td>
+                        <td  align="left" id="mail2"></td>
+                        <td  align="left" id="mail3"></td>
+                    </tr>
+                    <tr align="left">
+                        <td><img src=""  id="p4img"></td>
+                        <td><img src=""  id="p5img"></td>
+                        <td><img src=""  id="p6img"></td>
+                    </tr>
+                    <tr>
+                        <td  align="left" id="name4"></td>
+                        <td  align="left" id="name5"></td>
+                        <td  align="left" id="name6"></td>
+                    </tr>
+                    <tr>
+                        <td  align="left" id="mail4"></td>
+                        <td  align="left" id="mail5"></td>
+                        <td  align="left" id="mail6"></td>
+                    </tr>
+                </table>
+            </div>
+            </div>
+    </div>
+    <footer class="foot">
+        Created and Developed by @Tushar Chauhan
+    </footer>
+    <script>
+        console.log('INFINITY TEAM API ');
+function getData(a) {
+    url = "https://reqres.in/api/users?page=1";
+    fetch(url).then((response) => {
+        return response.json();
+    }).then((data) => {
+        console.log(data);
+        var value = data;
+        var img1 = (value['data'][0]['avatar']);
+        document.getElementById('p1img').src = img1;
+        var img2 = (value['data'][1]['avatar']);
+        document.getElementById('p2img').src = img2;
+        var img3 = (value['data'][2]['avatar']);
+        document.getElementById('p3img').src = img3;
+        var img3 = (value['data'][3]['avatar']);
+        document.getElementById('p4img').src = img3;
+        var img3 = (value['data'][4]['avatar']);
+        document.getElementById('p5img').src = img3;
+        var img3 = (value['data'][5]['avatar']);
+        document.getElementById('p6img').src = img3;
+        ///// name
+        var first1 = (value['data'][0]['first_name']);
+        var last1 = (value['data'][0]['last_name']);
+        document.getElementById('name1').innerHTML = first1 + " " + last1;
+        var first1 = (value['data'][1]['first_name']);
+        var last1 = (value['data'][1]['last_name']);
+        document.getElementById('name2').innerHTML = first1 + " " + last1;
+        var first1 = (value['data'][2]['first_name']);
+        var last1 = (value['data'][2]['last_name']);
+        document.getElementById('name3').innerHTML = first1 + " " + last1;
+        var first1 = (value['data'][3]['first_name']);
+        var last1 = (value['data'][3]['last_name']);
+        document.getElementById('name4').innerHTML = first1 + " " + last1;
+        var first1 = (value['data'][4]['first_name']);
+        var last1 = (value['data'][4]['last_name']);
+        document.getElementById('name5').innerHTML = first1 + " " + last1;
+        var first1 = (value['data'][5]['first_name']);
+        var last1 = (value['data'][5]['last_name']);
+        document.getElementById('name6').innerHTML = first1 + " " + last1;
+        /////mail
+        var mail1 = (value['data'][0]['email']);
+        document.getElementById('mail1').innerHTML = mail1;
+        var mail2 = (value['data'][1]['email']);
+        document.getElementById('mail2').innerHTML = mail2;
+        var mail3 = (value['data'][2]['email']);
+        document.getElementById('mail3').innerHTML = mail3;
+        var mail3 = (value['data'][3]['email']);
+        document.getElementById('mail4').innerHTML = mail3;
+        var mail3 = (value['data'][4]['email']);
+        document.getElementById('mail5').innerHTML = mail3;
+        var mail3 = (value['data'][5]['email']);
+        document.getElementById('mail6').innerHTML = mail3;
+
+
+
+
+    })
+}
+    </script>
+    </body>
+</body>
+</html>
